@@ -20,9 +20,7 @@
 │   ├── Console
 │   │   ├── Commands                  // cli command：通常用于实现轮询任务
 │   │   └── Kernel.php                // Schedule 调度
-│   ├── Contracts                     // 定义 interface
-│   ├── Enums                         // 定义枚举：要求php8.1以上版本，且laravel9.x以上版本 https://laravel.com/docs/9.x/releases#enum-casting
-│   │   └── ResponseEnum.php
+│   ├── Constants                     // 常量定义
 │   ├── Events                        // 事件处理
 │   │   ├── Event.php
 │   │   └── ExampleEvent.php
@@ -41,8 +39,10 @@
 │   │   └── Job.php
 │   ├── Listeners                     // 监听事件处理
 │   │   └── ExampleListener.php
-│   ├── Models                        // Laravel 原始的 Eloquent\Model：定义数据表特性、数据表之间的关联关系等；不处理业务
-│   │   └── User.php
+│   ├── Repositories                  // Repository 层：处理与数据相关的逻辑，调用 Model 取资源数据
+│   │   ├── UserRepository.php
+│   │   └──Models                  // Model 层：数据定义，以及数据之间的关联关系
+│   │       └── User.php
 │   ├── Providers                     // 各种服务容器
 │   │   └── AppServiceProvider.php
 │   ├── Services                      // Service 层：处理实际业务；调用 Model 取资源数据，分发 Job、Eevent 等
@@ -50,7 +50,6 @@
 │   └── Support                       // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能集
 │       ├── Traits
 │       │   ├── Helpers.php           // Class 中常用的辅助功能集
-│       │   └── SerializeDate.php
 │       └── helpers.php               // 全局会用到的辅助函数
 ```
 
