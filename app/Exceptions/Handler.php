@@ -30,4 +30,19 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $e)
+    {
+        if (env('APP_DEBUG')) {
+            // 开发环境，显示详细报错信息
+            return parent::render($request, $e);
+        }
+
+        $reporter = ExceptionReport::make($e);
+        if ($reporter->shouldReturn()) {
+            return $reporter->report();
+        }
+
+        return $reporter->prodReport();
+    }
 }
