@@ -52,6 +52,7 @@ class ExceptionReport
         NotFoundHttpException::class         => ['没有找到该页面', 404],
         MethodNotAllowedHttpException::class => ['访问方式不正确', 405],
         QueryException::class                => ['数据库参数错误', 401],
+        RequestFailException::class => ['参数错误', 401]
     ];
 
     /**

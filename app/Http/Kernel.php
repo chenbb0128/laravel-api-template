@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Api\ApiGuardMiddleware;
+use App\Http\Middleware\Api\RefreshApiTokenMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,5 +65,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'api.guard' => ApiGuardMiddleware::class,
+        'api.refresh' => RefreshApiTokenMiddleware::class
     ];
 }

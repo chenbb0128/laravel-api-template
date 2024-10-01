@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\WechatController;
+use App\Http\Controllers\Api\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,16 @@ use App\Http\Controllers\Api\UserController;
 
 Route::namespace('Api')
     ->name('api')
-    ->middleware(['cors', 'api.guard'])
+    ->middleware(['api.guard'])
     ->group(function (){
+        Route::any('test', [TestController::class, 'test']);
         Route::prefix('user')->group(function () {
             // 用户列表
             Route::get('list', [UserController::class, 'index']);
+        });
+
+        // 微信公众号相关
+        Route::prefix('wechat')->group(function () {
+            Route::any('serve', [WechatController::class, 'serve']);
         });
     });

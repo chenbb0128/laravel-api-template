@@ -12,4 +12,9 @@ class UserService
         $userRepository = new UserRepository();
         return $userRepository->getAll();
     }
+
+    public function getWalletInfo(int $userId)
+    {
+
+    }
 }
