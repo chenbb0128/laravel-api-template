@@ -10,7 +10,6 @@
         "jiannei/laravel-response": "^5.0",
         "laravel/framework": "^10.10",
         "laravel/tinker": "^2.8",
-        "overtrue/laravel-wechat": "^7.3",
         "tymon/jwt-auth": "^2.1"
     },
     "require-dev": {
@@ -28,11 +27,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        },
-        "classmap": [
-            "packages/jd",
-            "packages/dataoke"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
